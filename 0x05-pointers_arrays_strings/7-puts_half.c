@@ -1,36 +1,33 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
 
 /**
- * print_rev - prints a string in reverse
- * @s: pointer to the string to print
+ * puts_half - prints half of a string
+ * followed by a new line
+ * @str: string to be printed
  */
 void puts_half(char *str)
 {
-	if (strlen(str) % 2 != 0)
+	int len, n, i;
+
+	len = 0;
+
+	while (str[len] != '\0')
 	{
-		int i;
-		int len;
-
-		len = (int)(strlen(str) - 1) / 2;
-
-		for (i = len ; i != '\0' ; i++)
-		{
-			_putchar(str[i]);
-		}
-		_putchar('\n');
-	} else
-	{
-		int i;
-		int len;
-
-		len = (int)(strlen(str) / 2);
-
-		for (i = len ; i != '\0' ; i++)
-		{
-			_putchar(str[i]);
-		}
-		_putchar('\n');
+		len++;
 	}
+
+	if (len % 2 == 0)
+	{
+		for (i = len / 2; str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+		}
+	} else if (len % 2)
+	{
+		for (n = (len - 1) / 2; n < len - 1; n++)
+		{
+			_putchar(str[n + 1]);
+		}
+	}
+	_putchar('\n');
 }
